@@ -5,13 +5,13 @@ import (
 	"fmt"
 )
 
-var visited []bool
+var Visited []bool
 
 // Initialize the graph by entering number of nodes
 func buildGraph(v int) *list.List {
 	MasterList := list.New()
 	for i := 0; i < v; i++ {
-		visited = make([]bool, v)
+		Visited = make([]bool, v)
 		var l = list.New()
 		l.PushBack(i)
 		MasterList.PushBack(l)
@@ -64,7 +64,7 @@ func (q *Queue) Length() int {
 func Bfs(src int, graph *list.List) {
 	q := New()
 	q.Push(src)
-	visited[src] = true
+	Visited[src] = true
 	//fmt.Println(q.Length())
 	//fmt.Println(visited)
 
@@ -75,9 +75,9 @@ func Bfs(src int, graph *list.List) {
 			if e.Value.(*list.List).Front().Value == elem {
 
 				for qv := e.Value.(*list.List).Front(); qv != nil; qv = qv.Next() { // Push all adjacent nodes to queue
-					if visited[qv.Value.(int)] != true {
+					if Visited[qv.Value.(int)] != true {
 						q.Push(qv.Value)
-						visited[qv.Value.(int)] = true
+						Visited[qv.Value.(int)] = true
 					}
 				}
 				break
