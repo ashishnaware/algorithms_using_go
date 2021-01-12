@@ -10,8 +10,8 @@ var dfsVisited []bool
 // Initialize the graph by entering number of nodes
 func buildDFSGraph(v int) *list.List {
 	MasterList := list.New()
+	dfsVisited = make([]bool, v)
 	for i := 0; i < v; i++ {
-		dfsVisited = make([]bool, v)
 		var l = list.New()
 		l.PushBack(i)
 		MasterList.PushBack(l)
@@ -65,7 +65,5 @@ func main() {
 
 	fmt.Println("Start DFS")
 	DFS(0,Output)
-	fmt.Println(Output)
-	//Bfs(2, Output)
 
 }
